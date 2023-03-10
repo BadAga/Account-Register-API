@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using UniversalUserAPI.Models;
 using UniversalUserAPI.Models.DTOs;
 using UniversalUserAPI.Models.Mappers;
+using UniversalUserAPI.Models.Password_Manager;
 
 namespace UniversalUserAPI.Controllers
 {
@@ -94,6 +95,9 @@ namespace UniversalUserAPI.Controllers
             }
 
             int newId = GetNewUserId();
+            //password hashing
+            PasswordManager passManager = new PasswordManager(_userDto.Password);
+            _userDto.Password = passManager.GetComputedHashedPassword();
             User user = UserMapper.RegisterDtoToUser(ref _userDto,ref newId);
             
             _context.Users.Add(user);

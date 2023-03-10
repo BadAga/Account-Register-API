@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JgZUksyGMbmQdsv7mTg68uYFbxazAN1X+2+YC2dZPZCcPVUI12tvag5wvtWdcaLQc8KGtVx5ts3jvH8wybwZow==",
+  "dgSpecHash": "WvPR2ST42BI6pS0bmz9gofmu7ZGmXLRjg5nwkxdueZ3PUWUqoOYqYbflWMfItY5LBbi0bZK9yAF//kXUFzrbHQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\agnie\\source\\repos\\EUVIC CAMP zadanie\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\UniversalUserAPI.csproj",
+  "projectFilePath": "C:\\Users\\agnie\\source\\repos\\Universal User API\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\UniversalUserAPI.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\agnie\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\agnie\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",

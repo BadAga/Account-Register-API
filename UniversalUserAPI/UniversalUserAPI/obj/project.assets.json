@@ -10730,11 +10730,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\agnie\\source\\repos\\EUVIC CAMP zadanie\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\UniversalUserAPI.csproj",
+      "projectUniqueName": "C:\\Users\\agnie\\source\\repos\\Universal User API\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\UniversalUserAPI.csproj",
       "projectName": "UniversalUserAPI",
-      "projectPath": "C:\\Users\\agnie\\source\\repos\\EUVIC CAMP zadanie\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\UniversalUserAPI.csproj",
+      "projectPath": "C:\\Users\\agnie\\source\\repos\\Universal User API\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\UniversalUserAPI.csproj",
       "packagesPath": "C:\\Users\\agnie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\agnie\\source\\repos\\EUVIC CAMP zadanie\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\obj\\",
+      "outputPath": "C:\\Users\\agnie\\source\\repos\\Universal User API\\Account-Register-API\\UniversalUserAPI\\UniversalUserAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
