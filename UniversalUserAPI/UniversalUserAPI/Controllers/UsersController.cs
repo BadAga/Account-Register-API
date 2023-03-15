@@ -26,15 +26,30 @@ namespace UniversalUserAPI.Controllers
             return await _context.Users.ToListAsync();
         }
 
-        // GET: api/Users/5
-        [HttpGet("{id}")]
-        public async Task<ActionResult<User>> GetUser(int id)
+        // POST: api/Users/5
+        [HttpPost]
+        [Route ("Login")]
+        public async Task<ActionResult<User>> GetUser([FromBody]LoginDto loginDto)
         {
-            var user = await _context.Users.FindAsync(id);
-
-            if (user == null)
+            if(!ModelState.IsValid)
             {
-                return NotFound();
+                return BadRequest();
+            }
+
+            var user = await _context.Users.Where(x=>x.Email.Equals(loginDto.Email)).FirstOrDefaultAsync();
+
+            if(user==null)
+            {
+                return NotFound("User not found");
+            }
+            //checking password
+            string hashedPasswordFromDB = user.Password;
+            string saltFromDB=user.Salt;
+
+            PasswordManager passwordManager=new PasswordManager(loginDto.Password, saltFromDB);
+            if(!passwordManager.Compare(hashedPasswordFromDB))
+            {
+                return Unauthorized("Incorrect password");
             }
 
             return user;
@@ -71,8 +86,9 @@ namespace UniversalUserAPI.Controllers
             return NoContent();
         }
 
-        // POST: api/Users
+        // POST: api/Users/Register
         [HttpPost]
+        [Route("Register")]
         public async Task<ActionResult<User>> Register([FromBody] RegisterDto _userDto)
         {
             //validation check            
@@ -97,9 +113,11 @@ namespace UniversalUserAPI.Controllers
             int newId = GetNewUserId();
             //password hashing
             PasswordManager passManager = new PasswordManager(_userDto.Password);
-            _userDto.Password = passManager.GetComputedHashedPassword();
+            _userDto.Password = passManager.ComputedHashedPassword;
+
             User user = UserMapper.RegisterDtoToUser(ref _userDto,ref newId);
-            
+            //for future login
+            user.Salt = passManager.Salt;
             _context.Users.Add(user);
             try
             {
