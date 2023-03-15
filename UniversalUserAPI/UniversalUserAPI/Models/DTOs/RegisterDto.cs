@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using UniversalUserAPI.Models.Validators;
 
 namespace UniversalUserAPI.Models.DTOs
 {
@@ -21,6 +22,7 @@ namespace UniversalUserAPI.Models.DTOs
         [Unicode(false)]
         public string Email { get; set; } = null!;
         [Required]
+        [PeselValid]
         [StringLength(11)]
         [Unicode(false)]
         public string Pesel { get; set; } = null!;
