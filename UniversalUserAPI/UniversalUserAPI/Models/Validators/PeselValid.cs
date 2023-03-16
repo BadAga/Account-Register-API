@@ -6,16 +6,18 @@ namespace UniversalUserAPI.Models.Validators
 {
     public class PeselValid:ValidationAttribute
     {
-        public PeselValid() 
-        {
-        }
-
         protected override ValidationResult IsValid(object? value,ValidationContext validationContext)
         {
             ValidationResult result = ValidationResult.Success;
-            String pesel=(String)value;
+            
+            if(value==null)
+            {
+                result = new ValidationResult("Empty PESEL value");
+            }
 
-            if(pesel.Length!=11)
+            String pesel = (String)value;
+
+            if (pesel.Length!=11)
             {
                 result = new ValidationResult("Incorrect PESEL length");
             }
@@ -39,20 +41,20 @@ namespace UniversalUserAPI.Models.Validators
         private bool CheckControlNumber(ref String pesel)
         {
             //product of sum of digits that have weight==1
-            int productWithWeight1 = Convert.ToInt32(pesel.ElementAt(0)) +
-                                    Convert.ToInt32(pesel.ElementAt(4)) +
-                                    Convert.ToInt32(pesel.ElementAt(8))+
-                                    Convert.ToInt32(pesel.ElementAt(10));
+            int productWithWeight1 = (pesel.ElementAt(0)- '0') +
+                                    (pesel.ElementAt(4) - '0') +
+                                    (pesel.ElementAt(8) - '0') +
+                                    (pesel.ElementAt(10) - '0');
             //product of sum of digits that have weight==3
-            int productWithWeight3 = (Convert.ToInt32(pesel.ElementAt(1)) +
-                                      Convert.ToInt32(pesel.ElementAt(5)) +
-                                      Convert.ToInt32(pesel.ElementAt(9)))*3;
+            int productWithWeight3 = ((pesel.ElementAt(1) - '0') +
+                                      (pesel.ElementAt(5) - '0') +
+                                      (pesel.ElementAt(9) - '0'))*3;
             //product of sum of digits that have weight==7
-            int productWithWeight7 = (Convert.ToInt32(pesel.ElementAt(2)) +
-                                      Convert.ToInt32(pesel.ElementAt(6))) * 7;
+            int productWithWeight7 = ((pesel.ElementAt(2) - '0') +
+                                      (pesel.ElementAt(6) - '0')) * 7;
             //product of sum of digits that have weight==9
-            int productWithWeight9 = (Convert.ToInt32(pesel.ElementAt(3)) +
-                                      Convert.ToInt32(pesel.ElementAt(7))) * 3;
+            int productWithWeight9 = ((pesel.ElementAt(3) - '0') +
+                                      (pesel.ElementAt(7)- '0')) * 9;
 
             int sValue=productWithWeight1 + productWithWeight3+productWithWeight7+productWithWeight9;
 

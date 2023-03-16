@@ -27,11 +27,11 @@ namespace UniversalUserAPI.Models.DTOs
         [Unicode(false)]
         public string Pesel { get; set; } = null!;
         [Required]
-        [StringLength(100)]
+        [StringLength(200)]
         [Unicode(false)]
         public string Password { get; set; } = null!;
         [Required]
-        // [Phone]
+        [PhoneValid]
         [StringLength(15)]
         [Unicode(false)]
         public string PhoneNumber { get; set; } = null!;

@@ -50,7 +50,7 @@ public partial class User
     public string Role { get; set; } = null!;
 
     [Required]
-    [StringLength(100)]
+    [StringLength(150)]
     [Unicode(false)]
     public string Salt { get; set; } = null!;
 }
