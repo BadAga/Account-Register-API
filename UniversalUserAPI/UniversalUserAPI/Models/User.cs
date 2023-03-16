@@ -39,7 +39,7 @@ public partial class User
     public string Password { get; set; } = null!;
 
     [Required]
-    [StringLength(10)]
+    [StringLength(12)]
     public string PhoneNumber { get; set; } = null!;
 
     public int? Age { get; set; }

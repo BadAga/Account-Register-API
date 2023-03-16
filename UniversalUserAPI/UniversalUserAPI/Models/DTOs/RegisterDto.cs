@@ -27,7 +27,7 @@ namespace UniversalUserAPI.Models.DTOs
         [Unicode(false)]
         public string Pesel { get; set; } = null!;
         [Required]
-        [StringLength(200)]
+        [StringLength(40)]
         [Unicode(false)]
         public string Password { get; set; } = null!;
         [Required]
