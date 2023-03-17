@@ -45,7 +45,7 @@ namespace UniversalUserAPI.Models.Validators
             string[] chars = phone_number.Split(separator);
             string justNumbers=String.Join("", chars);
 
-            if(justNumbers.Length>9)
+            if(justNumbers.Length!=9)
             {
                 return false;
             }
