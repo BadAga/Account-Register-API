@@ -84,6 +84,10 @@ namespace UniversalAPI.Test
                                     phoneValidator.IsValid("12 34 56 78 9"),
                                     phoneValidator.IsValid("1 23 45 67 89"),
                                     phoneValidator.IsValid("1234 56789"),
+                                    phoneValidator.IsValid("12345 6789"),
+                                    phoneValidator.IsValid("123456 789"),
+                                    phoneValidator.IsValid("1234567 89"),
+                                    phoneValidator.IsValid("12345678 9"),
                                     phoneValidator.IsValid("12 34 567 89"),
                                     phoneValidator.IsValid("123 45 67 89"),
                                     phoneValidator.IsValid("12 34 56 899"),
@@ -93,7 +97,7 @@ namespace UniversalAPI.Test
                                     phoneValidator.IsValid("12 123 56 96"),
                                     phoneValidator.IsValid("12-123-56-96") };
 
-            bool[] expectedResults = {false,false,false,false,false,false,false,
+            bool[] expectedResults = {false,false,false,false,false,false,false,false,false,false,false,
                                       true,true,true,true};
 
             Assert.Equal(expectedResults, testCasesResults);

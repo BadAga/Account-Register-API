@@ -11,7 +11,7 @@ namespace UniversalUserAPI.Models.Validators
 
         public PhoneValid()
         {
-            this.regex = new Regex(@"\b(((([0-9]{3})[\s-]?){2}[0-9]{3})|(([0-9]{2}[\s-]?)([0-9]{3}[\s-]?)(([0-9]{2}[\s-]?){2})))\b");
+            this.regex = new Regex(@"\b(([0-9]{9})|(([0-9]{3}[\s-]){2}([0-9]{3}))|(([0-9]{2}[\s-])([0-9]{3}[\s-])([0-9]{2}[\s-])([0-9]{2})))\b");
         }
 
         protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
