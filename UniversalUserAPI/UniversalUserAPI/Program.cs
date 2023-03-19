@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Storage;
 using UniversalUserAPI.Models;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -6,7 +7,7 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 
 builder.Services.AddControllers();
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
@@ -16,7 +17,21 @@ builder.Services.AddDbContext<UserDbContext>(options => options.UseSqlServer(con
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+using (var serviceScope=app.Services.GetService<IServiceScopeFactory>().CreateScope())
+{
+    using (var context = serviceScope.ServiceProvider.GetRequiredService<UserDbContext>())
+    {
+        bool state = context.Database.CanConnect();
+        if (!state)
+        {
+            context.Database.EnsureCreated();
+        }
+    }
+}
+
+
+
+
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
