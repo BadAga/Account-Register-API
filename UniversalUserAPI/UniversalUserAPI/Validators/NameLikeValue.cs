@@ -11,16 +11,14 @@ namespace UniversalUserAPI.Validators
 
             if (value == null)
             {
-                FormatErrorMessage("Empty name like value");
-                result = new ValidationResult(ErrorMessageString);
+                result = new ValidationResult("Empty name like value");
             }
 
             String namelikeValue = (String)value;
 
             if (!CheckCharacters(ref namelikeValue))
             {
-                FormatErrorMessage("Name like values contain only letters and some special characters (. or -)");
-                result = new ValidationResult(ErrorMessageString);
+                result = new ValidationResult("Name like values contain only letters and some special characters (. or -)");
             }
             return result;
         }
