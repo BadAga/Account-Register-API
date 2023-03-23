@@ -33,6 +33,12 @@ namespace UniversalUserAPI.Validators
             return result;
         }
 
+        /// <summary>
+        /// Onlynumbers with correct separtaion (xx_xxx_xx_xx or xxx_xxx_xxx), where _ is a separator
+        /// searators accepted: space or hyphen
+        /// </summary>
+        /// <param name="phone_number">phone number value</param>
+        /// <returns>true if phone number is in ocrrect format</returns>
         private bool PhoneIsValid(ref string phone_number)
         {
             bool result = false;

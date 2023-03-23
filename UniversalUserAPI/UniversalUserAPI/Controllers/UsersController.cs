@@ -113,10 +113,13 @@ namespace UniversalUserAPI.Controllers
             //password hashing
             PasswordManager passManager = new PasswordManager(_userDto.Password);
             _userDto.Password = passManager.ComputedHashedPassword;
+            //phone numbers are stored in db WITHOUT seperators
 
+            _userDto.PhoneNumber = TransformToNoSepartorNumber(_userDto.PhoneNumber, ' ', '-');
             User user = UserMapper.RegisterDtoToUser(ref _userDto,ref newId);
             //for future login
-            user.Salt = passManager.Salt;
+            user.Salt = passManager.Salt;            
+            
             _context.Users.Add(user);
             try
             {
@@ -166,6 +169,37 @@ namespace UniversalUserAPI.Controllers
             }
 
             return _context.Users.Max(x => x.UserId) + 1;
+        }
+
+        /// <summary>
+        /// Deletes all separators from phone number.
+        /// Assumption: each number have ONLYONE type of separator.
+        /// </summary>
+        /// <param name="phoneNumber">phone number with no separators</param>
+        /// <param name="separtors">array of separtors</param>
+        /// <returns></returns>
+        private string TransformToNoSepartorNumber(string phoneNumber, params char[] separtors)
+        {
+            string noSparators = String.Empty;
+            char? existingSeparator = null;
+
+            foreach (char separator in separtors)
+            {
+                if(phoneNumber.Any(x=>x==separator))
+                {
+                    existingSeparator= separator;
+                    break;
+                }
+            }
+            if(existingSeparator == null)
+            {
+                return phoneNumber;
+            }
+
+            string[] subNumbers = phoneNumber.Split((char)existingSeparator);
+            noSparators = String.Join("", subNumbers);
+
+            return noSparators;
         }
 
         private bool UniqueEmail(String email)
