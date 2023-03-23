@@ -2,7 +2,7 @@
 using System.Configuration;
 using System.Globalization;
 
-namespace UniversalUserAPI.Models.Validators
+namespace UniversalUserAPI.Validators
 {
     public class PeselValid:ValidationAttribute
     {

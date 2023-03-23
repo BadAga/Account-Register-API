@@ -1,18 +1,20 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using UniversalUserAPI.Models.Validators;
+using UniversalUserAPI.Validators;
 
 namespace UniversalUserAPI.Models.DTOs
 {
     public class RegisterDto
     {
-        [Required(AllowEmptyStrings = false)]
+        [Required]
+        [NameLikeValue]
         [StringLength(50)]
         [Unicode(false)]
         public string Name { get; set; } = null!;
 
         [Required]
+        [NameLikeValue]
         [StringLength(50)]
         [Unicode(false)]
         public string Surname { get; set; } = null!;

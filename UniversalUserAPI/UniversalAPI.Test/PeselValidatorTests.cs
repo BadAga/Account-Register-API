@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using UniversalUserAPI.Models.Validators;
+using UniversalUserAPI.Validators;
 
 namespace UniversalAPI.Test
 {

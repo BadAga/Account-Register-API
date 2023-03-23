@@ -2,7 +2,8 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 using System.Text.RegularExpressions;
-namespace UniversalUserAPI.Models.Validators
+
+namespace UniversalUserAPI.Validators
 {
     public class PhoneValid:ValidationAttribute
     {
