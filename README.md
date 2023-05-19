@@ -16,3 +16,4 @@ Here's some of the project's features:
 - phone number and PESEL validation
 - JWT authorization
 - Unit testing
+- Sending email
