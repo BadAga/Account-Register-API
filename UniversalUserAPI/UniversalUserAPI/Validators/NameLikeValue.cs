@@ -7,20 +7,20 @@ namespace UniversalUserAPI.Validators
     {
         protected override ValidationResult IsValid(object? value, ValidationContext validationContext)
         {
-            ValidationResult result = ValidationResult.Success;
+            ValidationResult result = ValidationResult.Success!;
 
             if (value == null)
             {
                 result = new ValidationResult("Empty name like value");
             }
 
-            String namelikeValue = (String)value;
+            String? namelikeValue = (String?)value;
 
-            if (!CheckCharacters(ref namelikeValue))
+            if (!CheckCharacters(ref namelikeValue!))
             {
                 result = new ValidationResult("Name like values contain only letters and some special characters (. or -)");
             }
-            return result;
+            return result!;
         }
 
         private bool CheckCharacters(ref string value)

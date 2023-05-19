@@ -56,18 +56,18 @@ namespace UniversalAPI.Test
             string testedPesel3 = "123456";
 
             ValidationContext validationContext = new ValidationContext(testedPesel1);
-            ValidationResult validationResult = peselValid.GetValidationResult(testedPesel1,validationContext);
+            ValidationResult validationResult = peselValid.GetValidationResult(testedPesel1,validationContext)!;
 
             Assert.Equal("Incorrect PESEL", validationResult.ErrorMessage);
  
 
             validationContext = new ValidationContext(testedPesel2);
-            validationResult = peselValid.GetValidationResult(testedPesel2, validationContext);
+            validationResult = peselValid.GetValidationResult(testedPesel2, validationContext)!;
             Assert.Equal("PESEL contains only numbers", validationResult.ErrorMessage);
 
 
             validationContext = new ValidationContext(testedPesel3);
-            validationResult = peselValid.GetValidationResult(testedPesel3, validationContext);
+            validationResult = peselValid.GetValidationResult(testedPesel3, validationContext)!;
             Assert.Equal("Incorrect PESEL length", validationResult.ErrorMessage);
         }
     }

@@ -566,3 +566,6 @@ C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUse
 C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUserAPI\UniversalUserAPI\obj\Debug\net6.0\UniversalUserAPI.pdb
 C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUserAPI\UniversalUserAPI\obj\Debug\net6.0\UniversalUserAPI.genruntimeconfig.cache
 C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUserAPI\UniversalUserAPI\obj\Debug\net6.0\ref\UniversalUserAPI.dll
+C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUserAPI\UniversalUserAPI\bin\Debug\net6.0\MailKit.dll
+C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUserAPI\UniversalUserAPI\bin\Debug\net6.0\MimeKit.dll
+C:\Users\agnie\source\repos\Universal User API\Account-Register-API\UniversalUserAPI\UniversalUserAPI\bin\Debug\net6.0\BouncyCastle.Crypto.dll

@@ -1,15 +1,18 @@
+global using UniversalUserAPI.Services.EmailService;
+global using UniversalUserAPI.Models;
+
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
-using UniversalUserAPI.Models;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddTransient<IEmailService, EmailService>();
 
 //connect to DB
 var connectionString = builder.Configuration.GetConnectionString("UserDbConnection");
@@ -17,7 +20,7 @@ builder.Services.AddDbContext<UserDbContext>(options => options.UseSqlServer(con
 
 var app = builder.Build();
 
-using (var serviceScope=app.Services.GetService<IServiceScopeFactory>().CreateScope())
+using (var serviceScope=app.Services.GetService<IServiceScopeFactory>()!.CreateScope())
 {
     using (var context = serviceScope.ServiceProvider.GetRequiredService<UserDbContext>())
     {

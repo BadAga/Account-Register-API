@@ -113,9 +113,10 @@ namespace UniversalUserAPI.Controllers
             //password hashing
             PasswordManager passManager = new PasswordManager(_userDto.Password);
             _userDto.Password = passManager.ComputedHashedPassword;
-            //phone numbers are stored in db WITHOUT seperators
 
+            //phone numbers are stored in db WITHOUT seperators
             _userDto.PhoneNumber = TransformToNoSepartorNumber(_userDto.PhoneNumber, ' ', '-');
+
             User user = UserMapper.RegisterDtoToUser(ref _userDto,ref newId);
             //for future login
             user.Salt = passManager.Salt;            
